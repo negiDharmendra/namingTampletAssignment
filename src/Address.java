@@ -14,12 +14,18 @@ public class Address {
     }
 
     @Override
-    public boolean equals(Object anotherAddress) {
-        if (this == anotherAddress) return true;
-        if (!(anotherAddress instanceof Address)) return false;
-        Address address = (Address) anotherAddress;
-        return city.equals(address.city)&&state.equals(address.state)&&country.equals(address.country);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        boolean isCityMathces=false,isStateMatches=false,isCountryMatches=false;
+        if (city != null && city.equals(address.city)) isCityMathces = true;
+        if (state != null && state.equals(address.state)) isStateMatches = true;
+        if (country != null && country.equals(address.country)) isCountryMatches = true;
+        return isCityMathces&&isStateMatches&&isCountryMatches;
+
     }
+
     @Override
     public String toString() {
         return "City : " + city +

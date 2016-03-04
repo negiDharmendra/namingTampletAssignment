@@ -1,6 +1,4 @@
-/**
- * Created by dharmenn on 04/03/16.
- */
+
 public class Gender {
     private final String gender;
     public Gender(String gender) {
@@ -13,4 +11,13 @@ public class Gender {
             return  "Ms";
         return "";
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (!(other instanceof Gender)) return false;
+        Gender gender1 = (Gender) other;
+        return gender != null ? gender.equals(gender1.gender) : gender1.gender == null;
+    }
+
 }
