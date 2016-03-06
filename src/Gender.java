@@ -1,15 +1,16 @@
+import java.util.HashMap;
 
 public class Gender {
     private final String gender;
+    HashMap<String,String> honorifics = new HashMap<>();
     public Gender(String gender) {
         this.gender = gender;
+        this.honorifics.put("MALE","Mr");
+        this.honorifics.put("FEMALE","Ms");
+
     }
-    public String getPrefix(){
-        if(gender.toUpperCase().equals("MALE"))
-            return "Mr";
-        if(gender.toUpperCase().equals("FEMALE"))
-            return  "Ms";
-        return "";
+    public String createHonorific(){
+        return ""+honorifics.get(gender.toUpperCase());
     }
 
     @Override

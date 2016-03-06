@@ -1,0 +1,58 @@
+Develop a library to print label (representation of guest details) on invitation card.
+
+
+
+Given list(file) of records:
+    input format:
+        firstName, lastName, gender, age, city, state, address
+
+    output:
+        Way of addressing             Male    Female    name
+        Formal                        Mr      Ms        last, first
+        Informal                      Mr      Ms        first last
+
+==============================================================================
+input  ==>   record file (firstName,lastName,gender,age, city,state,country)
+
+input  --->    LabelPrinter    ---->   output:  Mr lastName firstName / Ms firstName lastName
+
+USAGE:
+    ./formalLabelPrinter.sh   filename
+    ./informalLabelPrinter.sh   filename
+
+formalLabelPrinter.sh
+    java labelPrinter  [--formal,  record's file]
+
+informalLabelPrinter.sh
+    java labelPrinter  [--informal, record's file]
+
+list of entities:
+    Guest:
+        1. it will have all the information of a guest like
+            name, gender, address and age
+        2. Guest also takes an nameFormatter to format his name
+
+    Name:
+        1. It contains the information about guest name
+        2. it have behaviour to manipulate the name into formal or informal way of
+            representation.
+
+    Address:
+        1. it contains all information about guest address
+        2. also it can provide information about address whenever asked
+
+    Gender:
+        1. it contains information of a guest's gender
+        2. it will provide the honorific depending on the gender
+
+    NameFormatter:
+        1. nameFormatter takes name gender and format the person name depending on
+            which type of formatter it is.
+
+    GuestManager
+
+
+    GuestsManager:
+
+
+

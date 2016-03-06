@@ -9,8 +9,11 @@ public class Address {
         this.country = country;
     }
 
-    public String getCountryName() {
-        return country;
+    public void generateLabel(Guest guest) {
+        guest.attachCountryName(country+"");
+    }
+    public boolean isCountry(String country) {
+        return (this.country.toUpperCase()).equals(country.toUpperCase());
     }
 
     @Override
@@ -32,4 +35,5 @@ public class Address {
                 ", State : " + state +
                 ", Country : " + country;
     }
+
 }
