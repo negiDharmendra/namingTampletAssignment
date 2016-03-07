@@ -4,7 +4,6 @@ public class Guest {
     private final Gender gender;
     private int age;
     private Address address;
-    private String countryLabel;
 
     public Guest(Name name, Gender gender, int age, Address address) {
         this.name = name;
@@ -14,14 +13,8 @@ public class Guest {
     }
 
     public String generateLevel() {
-        address.generateLabel(this);
-        return name.createFullName(gender) + ", " + countryLabel;
+        return name.createFullName(gender);
     }
-
-    public void attachCountryName(String label) {
-        this.countryLabel = label;
-    }
-
     @Override
     public boolean equals(Object otherPerson) {
         if (this == otherPerson) return true;
@@ -38,5 +31,13 @@ public class Guest {
 
     public boolean isResidentOf(String country) {
         return address.isCountry(country);
+    }
+
+    public boolean isAgeAbove(int age) {
+        return this.age>age;
+    }
+
+    public String getAge() {
+        return String.valueOf(age);
     }
 }

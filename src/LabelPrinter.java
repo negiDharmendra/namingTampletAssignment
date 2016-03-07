@@ -9,16 +9,25 @@ public class LabelPrinter {
             "informalLebePrinter.sh  fileName  --[countryname]";
 
     public static void main(String[] args) throws IOException {
-        if (args.length > 3 || args.length == 1 || args[1].equals("--help")) System.out.println(usage);
-        if (!args[1].equals("--help") && args.length > 1) createTemplate(args[0], args[1]);
+        if (args.length > 4 || args.length == 1 || args[1].equals("--help")) System.out.println(usage);
+        else{
+            CommandLineArgsRear commandLineArgsRear = new CommandLineArgsRear(args);
+            LinkedList<Filter> filters = commandLineArgsRear.getFilters();
+            NameFormatter nameFormatter = commandLineArgsRear.getNameFormatter();
+            LinkedList<String> filesName = commandLineArgsRear.getFilesName();
+            createTemplate(nameFormatter,filesName.get(0),filters);
+        }
+
 
     }
 
-    private static void createTemplate(String option, String guestList) throws IOException {
+    private static void createTemplate(NameFormatter option, String guestList, LinkedList<Filter> filters) throws IOException {
         ReadGuestList readGuestList = new ReadGuestList(guestList);
         GuestManager guestManager = new GuestManager(option, readGuestList.read());
         guestManager.generateGuestList();
-        LinkedList<String> tepmlates = guestManager.generateLevel();
+        LinkedList<String> tepmlates;
+        if(filters.size()>0) tepmlates = guestManager.generateLevel(filters);
+        else tepmlates = guestManager.generateLevel();
         for (String tepmlate : tepmlates) {
             System.out.println(tepmlate);
         }

@@ -7,9 +7,9 @@ Given list(file) of records:
         firstName, lastName, gender, age, city, state, address
 
     output:
-        Way of addressing             Male    Female    name
-        Formal                        Mr      Ms        last, first
-        Informal                      Mr      Ms        first last
+        Way of addressing             Male    Female    name            country         age
+        Formal                        Mr      Ms        last, first     Bangladesh      20
+        Informal                      Mr      Ms        first last      Bangladesh      20
 
 ==============================================================================
 input  ==>   record file (firstName,lastName,gender,age, city,state,country)
@@ -49,10 +49,12 @@ list of entities:
         1. nameFormatter takes name gender and format the person name depending on
             which type of formatter it is.
 
-    GuestManager
+    GuestManager:
+        1. it contains all the guest's and can ask them for their appropriate addressing label
+        2. it also execute all the filtering process to filter out the particular person
 
 
-    GuestsManager:
+
 
 
 

@@ -8,10 +8,6 @@ public class Address {
         this.state = state;
         this.country = country;
     }
-
-    public void generateLabel(Guest guest) {
-        guest.attachCountryName(country+"");
-    }
     public boolean isCountry(String country) {
         return (this.country.toUpperCase()).equals(country.toUpperCase());
     }

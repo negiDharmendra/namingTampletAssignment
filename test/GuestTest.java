@@ -8,14 +8,14 @@ public class GuestTest {
         Name name  = new Name("Julius", "Barrows");
         Guest guest = new Guest(name,new Gender("male"),18,new Address("Veda haven","Vermont","Macedonia"));
         name.addNameFormatter(new InformalName());
-        assertEquals("Mr Julius Barrows, Macedonia", guest.generateLevel());
+        assertEquals("Mr Julius Barrows", guest.generateLevel());
     }
     @Test
     public void testPrintDetailsAsLastNameFirstGivesTheDetailsAsMrLastNameCommaFirstNameCommaCountry()  {
         Name name  = new Name("Julius", "Barrows");
         Guest guest = new Guest(name,new Gender("male"),18,new Address("Veda haven","Vermont","Macedonia"));
         name.addNameFormatter(new FormalName());
-        assertEquals("Mr Barrows, Julius, Macedonia", guest.generateLevel());
+        assertEquals("Mr Barrows, Julius", guest.generateLevel());
     }
 
 
